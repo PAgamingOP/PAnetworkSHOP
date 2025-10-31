@@ -1,0 +1,282 @@
+--- index.html ---
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PAnetwork Shop</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-2">
+  <header class="topbar">
+    <div class="logo">PAnetwork <span class="accent">Shop</span></div>
+    <nav class="nav-small"><a href="plugins.html">PLUGINS</a><a href="maps.html">MAPS</a><a href="youtube.html">YOUTUBE STUFFS</a><a href="panetwork.html">PANETWORK</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>PAnetwork Shop</h1>
+      <p class="tag">Minecraft plugins, maps & YouTube assets — coming soon. Easy to update. Free hosting ready.</p>
+
+      <div class="buttons">
+        <a class="big-btn" href="plugins.html">PLUGINS</a>
+        <a class="big-btn" href="maps.html">MAPS</a>
+        <a class="big-btn" href="youtube.html">YOUTUBE STUFFS</a>
+        <a class="big-btn" href="panetwork.html">PANETWORK</a>
+      </div>
+
+      <div class="note">Tip: Replace download links with your link shortener (Boost.ink / Linkvertise) later.</div>
+    </section>
+
+    <section class="features">
+      <div class="card">
+        <h3>Easy uploads</h3>
+        <p>Upload .phar/.zip to GitHub Releases or Drive — add ad-shortened link to plugin pages.</p>
+      </div>
+      <div class="card">
+        <h3>Mobile first</h3>
+        <p>Designed to look good on phones and desktop — responsive layout.</p>
+      </div>
+      <div class="card">
+        <h3>Theme</h3>
+        <p>Minecraft-inspired colors and pixel font for authenticity.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Made by §7(§aP§eA§7) — PAnetwork Shop</footer>
+</body>
+</html>
+```
+
+--- plugins.html ---
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plugins — PAnetwork Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-2">
+  <header class="topbar">
+    <div class="logo">PAnetwork <span class="accent">Shop</span></div>
+    <nav class="nav-small"><a href="index.html">Home</a><a href="maps.html">MAPS</a><a href="youtube.html">YOUTUBE STUFFS</a><a href="panetwork.html">PANETWORK</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="list-head">
+      <h2>Plugins</h2>
+      <p>Click a plugin to expand details. Replace download links with your shortener when ready.</p>
+    </section>
+
+    <section class="grid">
+      <!-- Example plugin card - duplicate this block for each plugin -->
+      <article class="item">
+        <h3>BotPractice</h3>
+        <p class="meta">v1.0 • Utility</p>
+        <p class="desc">Practice high-knockback scenarios and block building challenges.</p>
+        <div class="actions">
+          <!-- Insert your shortener link into href when available -->
+          <a class="btn small" href="#">Download (coming)</a>
+          <a class="btn outline" href="#">Usage</a>
+        </div>
+      </article>
+
+      <article class="item placeholder">
+        <h3>Upload your plugin</h3>
+        <p class="meta">—</p>
+        <p class="desc">Add description, version and the short link to let users download through ads.</p>
+        <div class="actions"><a class="btn small" href="#">Edit</a></div>
+      </article>
+
+    </section>
+
+    <section class="instructions">
+      <h4>How to add a plugin</h4>
+      <ol>
+        <li>Upload your .phar or .zip to GitHub Releases or Google Drive (public).</li>
+        <li>Use Boost.ink / Linkvertise to create an ad-shortened download link.</li>
+        <li>Edit this page and replace the Download href with your short link.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">PAnetwork Shop</footer>
+</body>
+</html>
+```
+
+--- maps.html ---
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maps — PAnetwork Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-2">
+  <header class="topbar">
+    <div class="logo">PAnetwork <span class="accent">Shop</span></div>
+    <nav class="nav-small"><a href="index.html">Home</a><a href="plugins.html">PLUGINS</a><a href="youtube.html">YOUTUBE STUFFS</a><a href="panetwork.html">PANETWORK</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="list-head">
+      <h2>Maps</h2>
+      <p>Share your worlds here — include a short description, size and download link.</p>
+    </section>
+
+    <section class="grid">
+      <article class="item">
+        <h3>SkyArena</h3>
+        <p class="meta">1.0 • PvP Arena</p>
+        <p class="desc">A compact sky PvP arena made for fast matches. Compatible with Minecraft Bedrock MCPE.</p>
+        <div class="actions"><a class="btn small" href="#">Download</a></div>
+      </article>
+
+      <article class="item placeholder">
+        <h3>Add a map</h3>
+        <p class="desc">Describe the map, add a preview image (host on GitHub) and paste the ad-shortened download link.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">PAnetwork Shop</footer>
+</body>
+</html>
+```
+
+--- youtube.html ---
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YouTube Stuffs — PAnetwork Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-2">
+  <header class="topbar">
+    <div class="logo">PAnetwork <span class="accent">Shop</span></div>
+    <nav class="nav-small"><a href="index.html">Home</a><a href="plugins.html">PLUGINS</a><a href="maps.html">MAPS</a><a href="panetwork.html">PANETWORK</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="list-head">
+      <h2>YouTube Stuffs</h2>
+      <p>Thumbnails, intro templates and resource packs you use for your videos.</p>
+    </section>
+
+    <section class="grid">
+      <article class="item">
+        <h3>Thumbnail Pack</h3>
+        <p class="meta">Free • Set of 10 templates</p>
+        <p class="desc">Edit in any image editor — includes PNG templates and fonts (license-free). Add your own download link.</p>
+        <div class="actions"><a class="btn small" href="#">Download</a></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">PAnetwork Shop</footer>
+</body>
+</html>
+```
+
+--- panetwork.html ---
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PANETWORK — PAnetwork Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-2">
+  <header class="topbar">
+    <div class="logo">PAnetwork <span class="accent">Shop</span></div>
+    <nav class="nav-small"><a href="index.html">Home</a><a href="plugins.html">PLUGINS</a><a href="maps.html">MAPS</a><a href="youtube.html">YOUTUBE STUFFS</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="list-head">
+      <h2>PANETWORK</h2>
+      <p>Info about the PA Network server, rules, and how to join — add your server IP & features here.</p>
+    </section>
+
+    <section class="server-info">
+      <h3>Server IP / Info</h3>
+      <p><strong>IP:</strong> <em>play.panetwork.example</em> (replace with your real server IP)</p>
+      <p><strong>Features:</strong> Practice knockback, custom maps, fast queues, XP shops</p>
+      <h4>Rules</h4>
+      <ul>
+        <li>No cheating</li>
+        <li>Be respectful</li>
+        <li>Report bugs on Discord</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">PAnetwork Shop</footer>
+</body>
+</html>
+```
+
+--- style.css ---
+```css
+/* PAnetwork Shop — style.css (Minecraft-inspired, website-style UI) */
+:root{
+  --bg-dark:#0f1720;
+  --panel:#11151a;
+  --accent:#6ad34d; /* Minecraft green */
+  --muted:#aab3b8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Press Start 2P',system-ui,Arial,monospace;background:linear-gradient(180deg,#15202b, #0b0f14);color:#dbe7e3;min-height:100vh}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:rgba(0,0,0,0.2);backdrop-filter: blur(2px)}
+.logo{font-size:14px}
+.logo .accent{color:var(--accent)}
+.nav-small a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:10px}
+.container{max-width:980px;margin:28px auto;padding:0 16px}
+.hero{text-align:center;padding:34px 16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px}
+.hero h1{font-size:30px;margin:6px 0}
+.tag{color:var(--muted);font-size:10px;max-width:720px;margin:0 auto}
+.buttons{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px auto;max-width:720px}
+.big-btn{display:inline-block;padding:16px;border-radius:10px;text-decoration:none;background:rgba(255,255,255,0.03);border:2px solid rgba(255,255,255,0.03);font-size:12px;color:#e7f8e7}
+.big-btn:hover{box-shadow:0 6px 18px rgba(0,0,0,0.6);transform:translateY(-4px);border-color:var(--accent)}
+.note{font-size:11px;color:var(--muted);margin-top:8px}
+.features{display:flex;gap:12px;margin-top:18px}
+.card{flex:1;background:var(--panel);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+.card h3{margin:0 0 6px 0;font-size:12px}
+.card p{font-size:11px;color:var(--muted)}
+.site-footer{text-align:center;padding:18px 0;color:var(--muted);font-size:11px;margin-top:24px}
+.list-head h2{font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:18px 0}
+.item{background:linear-gradient(180deg,#0c1113,#0f1518);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.item h3{margin:0 0 6px 0;font-size:13px}
+.meta{font-size:10px;color:var(--muted)}
+.desc{font-size:11px;color:var(--muted);margin:8px 0}
+.actions{display:flex;gap:8px}
+.btn{display:inline-block;padding:8px 10px;border-radius:8px;font-size:11px;text-decoration:none}
+.btn.small{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);color:#e7f8e7}
+.btn.outline{background:transparent;border:1px dashed rgba(255,255,255,0.04);color:var(--muted)}
+.placeholder{opacity:0.7}
+.instructions{background:var(--panel);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+.server-info{background:var(--panel);padding:12px;border-radius:10px;margin-top:10px}
+@media (max-width:640px){
+  .topbar{padding:12px}
+  .hero h1{font-size:20px}
+  .logo{font-size:12px}
+}
