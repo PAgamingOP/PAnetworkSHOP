@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PAnetwork Shop</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(#6ab04c, #badc58);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+header {
+  background: rgba(0,0,0,0.5);
+  padding: 20px 10px;
+  border-bottom: 4px solid #333;
+  text-shadow: 2px 2px #000;
+}
+
+h1 {
+  color: #00ff00;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.container {
+  padding: 30px;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 50px;
+}
+
+button {
+  font-family: 'Press Start 2P', cursive;
+  background: #222;
+  color: #00ff00;
+  border: 3px solid #00ff00;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ff00;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #00ff00;
+  color: #222;
+  box-shadow: 0 0 25px #00ff00;
+}
+
+section {
+  display: none;
+  text-align: left;
+  background: rgba(0,0,0,0.5);
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px;
+  box-shadow: 0 0 15px #000;
+}
+
+section.active {
+  display: block;
+}
+
+a {
+  color: #00ff00;
+  text-decoration: none;
+  border-bottom: 2px dotted #00ff00;
+}
+
+a:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+footer {
+  background: rgba(0,0,0,0.6);
+  padding: 10px;
+  font-size: 10px;
+  color: #ccc;
+  margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>§aP§eA§fnetwork Shop</h1>
+</header>
+
+<div class="container">
+  <div class="button-grid">
+    <button onclick="showSection('plugins')">PLUGINS</button>
+    <button onclick="showSection('maps')">MAPS</button>
+    <button onclick="showSection('youtube')">YOUTUBE STUFFS</button>
+    <button onclick="showSection('panetwork')">PANETWORK</button>
+  </div>
+
+  <section id="plugins">
+    <h2>🧩 Plugins</h2>
+    <p>Here you’ll find my custom made PocketMine-MP plugins for Minecraft servers.</p>
+    <ul>
+      <li><a href="#" target="_blank">Knockback Practice (Coming Soon)</a></li>
+      <li><a href="#" target="_blank">No Fall Damage (Coming Soon)</a></li>
+      <li><a href="#" target="_blank">Kill Streak Leaderboard (Coming Soon)</a></li>
+    </ul>
+  </section>
+
+  <section id="maps">
+    <h2>🗺️ Maps</h2>
+    <p>Download my custom Minecraft maps designed for practice, PvP, and mini-games.</p>
+    <ul>
+      <li><a href="#" target="_blank">BotPractice Map (Coming Soon)</a></li>
+      <li><a href="#" target="_blank">SkyArena (Coming Soon)</a></li>
+    </ul>
+  </section>
+
+  <section id="youtube">
+    <h2>🎥 YouTube Stuffs</h2>
+    <p>Resources, files, and setups from my YouTube videos.</p>
+    <ul>
+      <li><a href="#" target="_blank">Command Block Setups (Coming Soon)</a></li>
+      <li><a href="#" target="_blank">Plugin Tutorials (Coming Soon)</a></li>
+    </ul>
+  </section>
+
+  <section id="panetwork">
+    <h2>🌐 PAnetwork</h2>
+    <p>Welcome to the official PAnetwork Hub! Stay tuned for updates, announcements, and future projects.</p>
+    <ul>
+      <li><a href="#" target="_blank">Discord (Coming Soon)</a></li>
+      <li><a href="#" target="_blank">Server IP (Coming Soon)</a></li>
+    </ul>
+  </section>
+</div>
+
+<footer>
+  © 2025 PAnetwork | Made with ❤️ by PAnetwork Dev Team
+</footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
