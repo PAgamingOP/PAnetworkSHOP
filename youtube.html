@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PA Network - YouTube Hub</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Particle background */
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .back {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #ff0000;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .back:hover {
+      background: #ff0000;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 80px;
+      padding-bottom: 60px;
+    }
+
+    h1 {
+      color: #ff0000;
+      font-size: 2.5em;
+      text-shadow: 0 0 15px #ff0000;
+    }
+
+    .section {
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      border-radius: 20px;
+      padding: 25px;
+      width: 80%;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+    }
+
+    .section h2 {
+      color: #ff3333;
+      font-size: 1.5em;
+    }
+
+    .section p {
+      color: #ccc;
+      font-size: 0.95em;
+      margin: 10px 0 20px;
+    }
+
+    .download {
+      background: #ff0000;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .download:hover {
+      background: white;
+      color: #ff0000;
+    }
+
+    footer {
+      text-align: center;
+      color: #888;
+      margin: 40px 0 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="back" onclick="window.location.href='index.html'">← Back</div>
+
+  <div class="container">
+    <h1>YouTube Creator Resources</h1>
+
+    <div class="section">
+      <h2>Thumbnail Backgrounds</h2>
+      <p>High-quality vibrant backgrounds to make your thumbnails stand out.</p>
+      <button class="download">Download</button>
+    </div>
+
+    <div class="section">
+      <h2>Thumbnail Assets</h2>
+      <p>Professional icons, frames, and design elements for creative thumbnails.</p>
+      <button class="download">Download</button>
+    </div>
+
+    <div class="section">
+      <h2>No-Copyright Music</h2>
+      <p>Royalty-free tracks you can safely use in your videos.</p>
+      <button class="download">Download</button>
+    </div>
+
+    <div class="section">
+      <h2>Sound Effects</h2>
+      <p>Popular YouTube sound effects and transitions to enhance your videos.</p>
+      <button class="download">Download</button>
+    </div>
+
+    <div class="section">
+      <h2>YouTube Releases</h2>
+      <p>Latest YouTube updates, design templates, and assets for creators.</p>
+      <button class="download">Download</button>
+    </div>
+
+    <footer>© 2025 PA Network — All Rights Reserved</footer>
+  </div>
+
+  <script>
+    // Particle animation
+    const c = document.getElementById("particles");
+    const ctx = c.getContext("2d");
+    c.width = innerWidth;
+    c.height = innerHeight;
+
+    let particles = [];
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * c.width,
+        y: Math.random() * c.height,
+        r: Math.random() * 2,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, c.width, c.height);
+      ctx.fillStyle = "rgba(255,255,255,0.8)";
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > c.width) p.dx *= -1;
+        if (p.y < 0 || p.y > c.height) p.dy *= -1;
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
