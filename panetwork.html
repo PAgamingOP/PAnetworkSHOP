@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About PAnetwork</title>
+<link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  font-family: 'Minecraft', monospace;
+  background: radial-gradient(circle at center, #100024 0%, #000 100%);
+  color: #e0d4ff;
+}
+
+/* Glowing floating particles */
+.particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: #bb80ff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #bb80ff;
+  opacity: 0.8;
+  animation: float 15s linear infinite;
+  z-index: -1;
+}
+@keyframes float {
+  from {
+    transform: translateY(100vh) scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-10vh) scale(0.7);
+    opacity: 0.2;
+  }
+}
+
+header {
+  text-align: center;
+  padding: 80px 20px 30px;
+}
+header h1 {
+  color: #c080ff;
+  text-shadow: 0 0 15px #a050ff;
+}
+
+.back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(145deg, #220033, #400066);
+  border: 2px solid #a050ff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 0 15px #bb80ff;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+section {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #4c1a8c;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 25px #a050ff;
+  margin-bottom: 60px;
+}
+
+section h2 {
+  color: #dcb3ff;
+  border-bottom: 1px solid #663399;
+  padding-bottom: 5px;
+  text-shadow: 0 0 5px #bb80ff;
+}
+
+section p, section ul {
+  line-height: 1.8;
+  font-size: 15px;
+  color: #e8dcff;
+}
+
+ul {
+  text-align: left;
+}
+
+footer {
+  text-align: center;
+  color: #999;
+  margin-top: 60px;
+  padding: 20px;
+  border-top: 1px solid #330066;
+  background: rgba(0, 0, 0, 0.4);
+}
+</style>
+</head>
+<body>
+<button class="back" onclick="location.href='index.html'">← Back</button>
+
+<header>
+  <h1>🌌 Welcome to PAnetwork</h1>
+</header>
+
+<section>
+  <h2>📜 Server Rules</h2>
+  <ul>
+    <li>No hacking, cheating, or unfair advantage of any kind.</li>
+    <li>No spamming or flooding chats with unwanted messages.</li>
+    <li>No harassment, bullying, or disrespecting other players.</li>
+    <li>No scamming or misleading trades — honesty is required.</li>
+    <li>Do not exploit bugs or glitches — report them to admins.</li>
+    <li>Do not impersonate staff or pretend to have authority.</li>
+    <li>Follow all instructions from moderators and admins.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🌐 Server Information</h2>
+  <p><b>Server Name:</b> PAnetwork Official Minecraft Server</p>
+  <p><b>Supported Versions:</b> Multi-version (MCPE 1.1.5 – Latest)</p>
+  <p><b>Server Type:</b> PocketMine-MP (Custom Plugins & Features)</p>
+  <p><b>IP Address:</b> <span style="color:#99ff99;">play.panetwork.net</span></p>
+  <p><b>Port:</b> <span style="color:#ffff66;">19132</span></p>
+  <p><b>Platform:</b> Bedrock / MCPE / Windows 10 Edition</p>
+</section>
+
+<section>
+  <h2>🔒 Privacy & Data</h2>
+  <p>PAnetwork respects your privacy. No personal information is required or stored while accessing the website.  
+  Any cookies or local storage used are only for performance and customization of your user experience.</p>
+  <p>We do not share user data with any third-party platform except for integrated ad or link systems used for rewards (coins or ad-based rewards).</p>
+</section>
+
+<section>
+  <h2>⚖️ Legal & Copyright</h2>
+  <p>All original plugins, maps, and resources hosted under PAnetwork are either:</p>
+  <ul>
+    <li>Created and owned by PAnetwork (© 2025 PAnetwork. All rights reserved.)</li>
+    <li>Released publicly for non-commercial Minecraft community use.</li>
+  </ul>
+  <p>No part of this content may be resold, redistributed, or claimed as your own without proper credit or permission.</p>
+  <p>“Minecraft” and related assets are the property of Mojang Studios / Microsoft. PAnetwork is an independent fan-made network and is not affiliated with Mojang AB.</p>
+</section>
+
+<section>
+  <h2>💬 Contact & Community</h2>
+  <p>For support, feedback, or plugin collaborations, reach out through:</p>
+  <ul>
+    <li><b>Email:</b> support@panetwork.net (coming soon)</li>
+    <li><b>YouTube:</b> PAnetwork Official</li>
+    <li><b>Discord:</b> Coming Soon!</li>
+  </ul>
+</section>
+
+<footer>© 2025 PAnetwork. All rights reserved. Designed with ❤️ by PAnetwork Dev Team.</footer>
+
+<script>
+// Generate purple glow particles (like galaxy fireflies)
+for (let i = 0; i < 60; i++) {
+  const p = document.createElement("div");
+  p.className = "particle";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = (10 + Math.random() * 10) + "s";
+  p.style.opacity = 0.3 + Math.random() * 0.7;
+  document.body.appendChild(p);
+}
+</script>
+</body>
+</html>
