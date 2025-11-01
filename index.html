@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PAnetwork SHOP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -15,6 +15,7 @@
       text-align: center;
       height: 100vh;
     }
+
     h1 {
       font-size: 22px;
       margin-top: 50px;
@@ -23,30 +24,44 @@
       color: transparent;
       animation: glow 2s infinite alternate;
     }
+
     @keyframes glow {
-      from { text-shadow: 0 0 10px #00ff7f; }
-      to { text-shadow: 0 0 25px #ffff00; }
+      from {
+        text-shadow: 0 0 10px #00ff7f;
+      }
+      to {
+        text-shadow: 0 0 25px #ffff00;
+      }
     }
+
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      margin-top: 80px;
+      gap: 25px;
+      margin-top: 100px;
     }
-    a {
+
+    .buttons a {
+      display: inline-block;
+      width: 260px;
+      margin: 0 auto;
       text-decoration: none;
-      color: white;
+      color: #fff;
+      font-size: 14px;
       padding: 20px;
+      border-radius: 12px;
       border: 2px solid #00ff7f;
-      border-radius: 15px;
-      background: rgba(0,0,0,0.6);
-      box-shadow: 0 0 10px #00ff7f;
+      background: linear-gradient(145deg, #0a0a0a, #101010);
+      box-shadow: 0 0 20px #00ff7f80, inset 0 0 10px #00ff7f40;
       transition: all 0.3s ease;
     }
-    a:hover {
-      background: rgba(0,255,127,0.2);
+
+    .buttons a:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 25px #00ff7f, inset 0 0 20px #00ff7f70;
+      background: linear-gradient(145deg, #111, #222);
     }
+
     footer {
       position: absolute;
       bottom: 15px;
@@ -54,16 +69,20 @@
       font-size: 10px;
       color: #888;
     }
+
     canvas {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
     }
   </style>
 </head>
 <body>
   <canvas id="galaxy"></canvas>
+
   <h1>PAnetwork SHOP</h1>
   <div class="buttons">
     <a href="plugins.html">PLUGINS</a>
@@ -72,6 +91,7 @@
     <a href="panetwork.html">PANETWORK</a>
     <a href="shop.html">SHOP</a>
   </div>
+
   <footer>© 2025 PAnetwork. All rights reserved.</footer>
 
   <script>
@@ -79,33 +99,106 @@
     const ctx = c.getContext('2d');
     c.width = innerWidth;
     c.height = innerHeight;
+
     const stars = [];
     const fireflies = [];
     const meteors = [];
-    for(let i=0;i<200;i++) stars.push({x:Math.random()*c.width, y:Math.random()*c.height, r:Math.random()*2});
-    for(let i=0;i<25;i++) fireflies.push({x:Math.random()*c.width, y:Math.random()*c.height, s:Math.random()*1+0.5, a:Math.random()*360});
-    for(let i=0;i<3;i++) meteors.push({x:Math.random()*c.width, y:Math.random()*c.height, l:Math.random()*100+50, s:Math.random()*3+2});
-    function animate(){
-      ctx.clearRect(0,0,c.width,c.height);
-      ctx.fillStyle='white';
-      stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,2*Math.PI);ctx.fill();});
-      fireflies.forEach(f=>{
-        f.a+=0.05;
-        f.x+=Math.cos(f.a)*0.5;
-        f.y+=Math.sin(f.a)*0.5;
-        if(f.x<0)f.x=c.width;if(f.x>c.width)f.x=0;if(f.y<0)f.y=c.height;if(f.y>c.height)f.y=0;
-        ctx.fillStyle='rgba(255,255,100,0.8)';
-        ctx.beginPath();ctx.arc(f.x,f.y,2,0,2*Math.PI);ctx.fill();
+    const planets = [];
+
+    for (let i = 0; i < 250; i++)
+      stars.push({ x: Math.random() * c.width, y: Math.random() * c.height, r: Math.random() * 1.5 });
+
+    for (let i = 0; i < 30; i++)
+      fireflies.push({
+        x: Math.random() * c.width,
+        y: Math.random() * c.height,
+        s: Math.random() * 1 + 0.5,
+        a: Math.random() * 360
       });
-      meteors.forEach(m=>{
-        m.x-=m.s; m.y+=m.s;
-        if(m.x<-100||m.y>c.height+100){m.x=Math.random()*c.width+200;m.y=-50;}
-        const grad=ctx.createLinearGradient(m.x,m.y,m.x+m.l,m.y-m.l);
-        grad.addColorStop(0,'rgba(255,255,255,0.8)');
-        grad.addColorStop(1,'rgba(255,255,255,0)');
-        ctx.strokeStyle=grad;ctx.lineWidth=2;
-        ctx.beginPath();ctx.moveTo(m.x,m.y);ctx.lineTo(m.x+m.l,m.y-m.l);ctx.stroke();
+
+    for (let i = 0; i < 3; i++)
+      meteors.push({
+        x: Math.random() * c.width,
+        y: Math.random() * c.height,
+        l: Math.random() * 100 + 50,
+        s: Math.random() * 3 + 2
       });
+
+    // 🌍 Planets / glowing bubbles
+    for (let i = 0; i < 8; i++)
+      planets.push({
+        x: Math.random() * c.width,
+        y: Math.random() * c.height,
+        r: Math.random() * 60 + 30,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+        color: `hsl(${Math.random() * 360},70%,60%)`
+      });
+
+    function animate() {
+      ctx.clearRect(0, 0, c.width, c.height);
+
+      // background stars
+      ctx.fillStyle = 'white';
+      stars.forEach((s) => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+
+      // planets
+      planets.forEach((p) => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < -p.r) p.x = c.width + p.r;
+        if (p.x > c.width + p.r) p.x = -p.r;
+        if (p.y < -p.r) p.y = c.height + p.r;
+        if (p.y > c.height + p.r) p.y = -p.r;
+
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+        grad.addColorStop(0, 'rgba(255,255,255,0.9)');
+        grad.addColorStop(0.3, p.color);
+        grad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // fireflies
+      fireflies.forEach((f) => {
+        f.a += 0.05;
+        f.x += Math.cos(f.a) * 0.5;
+        f.y += Math.sin(f.a) * 0.5;
+        if (f.x < 0) f.x = c.width;
+        if (f.x > c.width) f.x = 0;
+        if (f.y < 0) f.y = c.height;
+        if (f.y > c.height) f.y = 0;
+        ctx.fillStyle = 'rgba(255,255,100,0.8)';
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, 2, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+
+      // meteors
+      meteors.forEach((m) => {
+        m.x -= m.s;
+        m.y += m.s;
+        if (m.x < -100 || m.y > c.height + 100) {
+          m.x = Math.random() * c.width + 200;
+          m.y = -50;
+        }
+        const grad = ctx.createLinearGradient(m.x, m.y, m.x + m.l, m.y - m.l);
+        grad.addColorStop(0, 'rgba(255,255,255,0.8)');
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(m.x, m.y);
+        ctx.lineTo(m.x + m.l, m.y - m.l);
+        ctx.stroke();
+      });
+
       requestAnimationFrame(animate);
     }
     animate();
