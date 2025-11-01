@@ -1,233 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PAnetwork SHOP</title>
-
-<!-- Minecraft Font -->
-<link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Minecraft', sans-serif;
-  color: #fff;
-  background: radial-gradient(circle at 50% 50%, #0a0015, #000010 80%);
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-/* Canvas Background (Galaxy + Fireflies) */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-}
-
-/* Header */
-header {
-  text-align: center;
-  padding: 40px 0;
-  font-size: 3em;
-  text-shadow: 0 0 15px #00ff88;
-}
-header span:nth-child(1) {
-  color: #00ff88; /* Green for PAnetwork */
-}
-header span:nth-child(2) {
-  color: #ffee00; /* Yellow for SHOP */
-}
-
-/* Buttons */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-button {
-  background: linear-gradient(145deg, #111, #333);
-  color: #fff;
-  border: 2px solid #00ff88;
-  font-family: 'Minecraft';
-  font-size: 1.2em;
-  padding: 15px 25px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-button:hover {
-  background: linear-gradient(145deg, #00ff88, #ffee00);
-  color: #000;
-  box-shadow: 0 0 20px #00ff88;
-}
-
-/* Section Container */
-section {
-  display: none;
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 25px;
-  background: rgba(20, 20, 30, 0.85);
-  border: 2px solid #00ff88;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0,255,136,0.3);
-}
-section.active {
-  display: block;
-  animation: fadeIn 0.8s ease;
-}
-
-/* Download Box */
-.download-box {
-  margin-top: 20px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid #ffee00;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-}
-.download-box a {
-  color: #ffee00;
-  text-decoration: none;
-  font-weight: bold;
-}
-.download-box a:hover {
-  color: #00ff88;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
-</head>
-
-<body>
-<canvas id="bg"></canvas>
-
-<header>
-  <span>PAnetwork</span> <span>SHOP</span>
-</header>
-
-<nav>
-  <button onclick="openSection('shop')">Shop</button>
-  <button onclick="openSection('plugins')">Plugins</button>
-  <button onclick="openSection('stuff')">PAnetwork Stuff</button>
-</nav>
-
-<section id="shop">
-  <h2>Shop Section</h2>
-  <p>Here you can find amazing PAnetwork Shop items, tools, and features.</p>
-  <div class="download-box">
-    <p>Click below to download the latest Shop resources.</p>
-    <a href="#">⬇ Download Shop Pack</a>
-  </div>
-</section>
-
-<section id="plugins">
-  <h2>Plugins Section</h2>
-  <p>Official PAnetwork plugins collection for PocketMine-MP and MCPE servers.</p>
-  <div class="download-box">
-    <p>Click below to get the plugin pack.</p>
-    <a href="#">⬇ Download Plugin Pack</a>
-  </div>
-</section>
-
-<section id="stuff">
-  <h2>PAnetwork Stuff</h2>
-  <p>Exclusive assets, sounds, textures, and developer utilities for your projects.</p>
-  <div class="download-box">
-    <p>Click below to download extra tools and resources.</p>
-    <a href="#">⬇ Download Stuff Pack</a>
-  </div>
-</section>
-
-<script>
-function openSection(id) {
-  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-
-/* Background Animation (Galaxy, Fireflies, and Meteors) */
-const canvas = document.getElementById('bg');
-const ctx = canvas.getContext('2d');
-let w, h;
-let fireflies = [];
-let meteors = [];
-let planets = [];
-
-function resize() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
-
-for (let i = 0; i < 50; i++) {
-  fireflies.push({x: Math.random()*w, y: Math.random()*h, r: Math.random()*2+1, d: Math.random()*0.5+0.2});
-}
-for (let i = 0; i < 6; i++) {
-  planets.push({x: Math.random()*w, y: Math.random()*h, r: Math.random()*60+30, c:`hsl(${Math.random()*360},80%,60%)`});
-}
-for (let i = 0; i < 5; i++) {
-  meteors.push({x: Math.random()*w, y: Math.random()*h, l: Math.random()*80+60, vx: Math.random()*6+4, vy: Math.random()*2+1});
-}
-
-function draw() {
-  ctx.clearRect(0,0,w,h);
-
-  // Draw planets
-  planets.forEach(p=>{
-    let grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
-    grad.addColorStop(0, p.c);
-    grad.addColorStop(1, "rgba(0,0,0,0)");
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-    ctx.fill();
-  });
-
-  // Fireflies
-  ctx.fillStyle = "#ffffff";
-  fireflies.forEach(f=>{
-    ctx.globalAlpha = 0.8 + Math.sin(Date.now()/500+f.x)*0.2;
-    ctx.beginPath();
-    ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
-    ctx.fill();
-    f.y += Math.sin(Date.now()/1000+f.x)*0.3;
-    f.x += Math.cos(Date.now()/1000+f.y)*0.3;
-    if(f.x > w) f.x=0;
-    if(f.x < 0) f.x=w;
-    if(f.y > h) f.y=0;
-    if(f.y < 0) f.y=h;
-  });
-
-  // Meteors
-  ctx.globalAlpha = 1;
-  meteors.forEach(m=>{
-    ctx.strokeStyle = "rgba(255,180,80,0.8)";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(m.x, m.y);
-    ctx.lineTo(m.x - m.l, m.y - m.l*0.5);
-    ctx.stroke();
-    m.x += m.vx;
-    m.y += m.vy;
-    if(m.x > w+100 || m.y > h+100){
-      m.x = -100;
-      m.y = Math.random()*h*0.5;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAnetwork SHOP</title>
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%; width: 100%;
+      overflow-y: auto;
+      font-family: 'Minecraft', monospace;
+      background: radial-gradient(circle at bottom, #03010a 0%, #000000 100%);
+      color: #ddd;
     }
-  });
+    #galaxy { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+    header { text-align:center; padding-top:60px; }
+    h1 { font-size:36px; }
+    .green { color:#00ff80; text-shadow:0 0 15px #00ff80; }
+    .yellow { color:#ffff55; text-shadow:0 0 15px #ffff55; }
 
-  requestAnimationFrame(draw);
-}
-draw();
-</script>
+    .menu { text-align:center; margin-top:40px; }
+    .menu button {
+      display:block; margin:20px auto; padding:15px 40px;
+      font-size:18px; background:linear-gradient(145deg,#2d0050,#18002e);
+      border:2px solid #7f3cff; border-radius:10px; color:white;
+      box-shadow:0 0 20px #a66bff; cursor:pointer; transition:0.2s;
+    }
+    .menu button:hover { background:#5a1aff; transform:scale(1.07); }
+
+    footer {
+      text-align:center; color:#999; margin-top:80px;
+      padding:20px; border-top:1px solid #333; background:rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="galaxy"></canvas>
+
+  <header>
+    <h1><span class="green">PAnetwork</span> <span class="yellow">SHOP</span></h1>
+    <p>Welcome to the official PAnetwork portal.</p>
+  </header>
+
+  <div class="menu">
+    <button onclick="location.href='shop.html'">🛒 Shop</button>
+    <button onclick="location.href='plugins.html'">🔧 Plugins</button>
+    <button onclick="location.href='maps.html'">🗺️ Maps</button>
+    <button onclick="location.href='earn.html'">💰 Earn Coins</button>
+  </div>
+
+  <footer>© 2025 PAnetwork. All rights reserved.</footer>
+
+  <script>
+    const c = document.getElementById("galaxy"), x = c.getContext("2d");
+    c.width = innerWidth; c.height = innerHeight;
+    const s = [], f = [];
+    class S { constructor(a,b,d,e){this.x=a;this.y=b;this.r=d;this.s=e;}
+      draw(){x.beginPath();x.arc(this.x,this.y,this.r,0,Math.PI*2);
+      x.fillStyle=`rgba(150,150,255,${this.s})`;x.shadowColor="#a080ff";x.shadowBlur=10;x.fill();}}
+    class F { constructor(){this.x=Math.random()*c.width;this.y=Math.random()*c.height;this.r=2;this.a=Math.random();
+      this.vx=(Math.random()-.5)*1.5;this.vy=(Math.random()-.5)*1.5;}
+      move(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>c.width)this.vx*=-1;if(this.y<0||this.y>c.height)this.vy*=-1;}
+      draw(){x.beginPath();x.arc(this.x,this.y,this.r,0,Math.PI*2);
+      x.fillStyle=`rgba(255,255,150,${this.a})`;x.shadowColor="#ffff66";x.shadowBlur=10;x.fill();}}
+    for(let i=0;i<200;i++)s.push(new S(Math.random()*c.width,Math.random()*c.height,Math.random()*1.5,Math.random()));
+    for(let i=0;i<30;i++)f.push(new F());
+    function anim(){x.fillStyle="rgba(0,0,0,0.25)";x.fillRect(0,0,c.width,c.height);
+      s.forEach(a=>a.draw());f.forEach(a=>{a.move();a.draw();});requestAnimationFrame(anim);}anim();
+    window.addEventListener('resize',()=>{c.width=innerWidth;c.height=innerHeight;});
+  </script>
 </body>
 </html>
