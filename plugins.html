@@ -1,59 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plugins - PAnetwork SHOP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    body { margin:0; overflow-x:hidden; background:radial-gradient(circle at bottom,#080808,#000); color:white; font-family:'Press Start 2P',cursive; text-align:center; }
-    header { display:flex; justify-content:space-between; align-items:center; padding:15px; }
-    header a { color:white; text-decoration:none; font-size:16px; }
-    h2 { margin-top:20px; }
-    .download-box { border:2px solid #00ff7f; border-radius:15px; padding:20px; margin:20px; background:rgba(0,0,0,0.6); box-shadow:0 0 15px #00ff7f; }
-    canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plugins for 0.14 - 0.15</title>
+<link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  font-family: 'Minecraft', monospace;
+  background: linear-gradient(180deg, #00130d 0%, #000000 100%);
+  color: #e0ffe0;
+}
+
+#forest {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at bottom, #00130d, #000);
+}
+
+header {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+header h1 {
+  color: #76ff76;
+  text-shadow: 0 0 10px #00ff7f;
+}
+
+.back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(145deg, #002d1a, #004d2e);
+  border: 2px solid #00ff7f;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 0 15px #00ff99;
+  color: #e0ffe0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+section {
+  text-align: center;
+  padding: 40px 20px 100px;
+}
+
+.plugin-box {
+  border: 2px solid #00ff7f;
+  border-radius: 12px;
+  background: rgba(0, 40, 20, 0.6);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 500px;
+  box-shadow: 0 0 25px #00ff99;
+  transition: transform 0.2s;
+}
+.plugin-box:hover {
+  transform: scale(1.02);
+}
+.plugin-box h2 {
+  color: #8aff8a;
+  margin-bottom: 8px;
+}
+.plugin-box p {
+  color: #baffba;
+  font-size: 14px;
+}
+.plugin-box a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: linear-gradient(145deg, #007a4a, #00a35a);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 10px #00ff99;
+  transition: background 0.2s;
+}
+.plugin-box a:hover {
+  background: linear-gradient(145deg, #00a35a, #007a4a);
+}
+
+footer {
+  text-align: center;
+  color: #999;
+  margin-top: 60px;
+  padding: 20px;
+  border-top: 1px solid #003322;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Floating leaves & particles animation */
+.leaf, .glow {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.leaf {
+  width: 10px; height: 10px;
+  background: #00ff7f;
+  animation: float 10s linear infinite;
+}
+.glow {
+  width: 3px; height: 3px;
+  background: #aaffaa;
+  box-shadow: 0 0 8px #aaffaa;
+  animation: drift 12s linear infinite;
+}
+@keyframes float {
+  from {transform: translateY(100vh) translateX(0);}
+  to {transform: translateY(-10vh) translateX(50px);}
+}
+@keyframes drift {
+  from {transform: translateY(100vh) translateX(0);}
+  to {transform: translateY(-10vh) translateX(-50px);}
+}
+</style>
 </head>
 <body>
-  <canvas id="bg"></canvas>
-  <header>
-    <a href="index.html">⬅ Back</a>
-    <h3>Plugins</h3>
-  </header>
-  <h2>PLUGINS for 0.14 - 0.15</h2>
-  <div class="download-box">
-    <p>Knockback Practice Plugin</p>
-    <a href="#">⬇ Download</a>
-  </div>
-  <div class="download-box">
-    <p>KillStreak System Plugin</p>
-    <a href="#">⬇ Download</a>
-  </div>
-  <div class="download-box">
-    <p>perworld headsteal</p>
-    <a href="#">⬇ Download</a>
-  </div>
-  <div class="download-box">
-    <p>per world hardcore</p>
+<div id="forest"></div>
+<button class="back" onclick="location.href='index.html'">← Back</button>
+
+<header>
+  <h1>🌲 PAnetwork Plugins</h1>
+</header>
+
+<section>
+  <div class="plugin-box">
+    <h2>Knockback Practice Plugin</h2>
+    <p>Train your PvP skills with high knockback control and smooth block reset mechanics.</p>
     <a href="#">⬇ Download</a>
   </div>
 
+  <div class="plugin-box">
+    <h2>Killstreak Leaderboard Plugin</h2>
+    <p>Track and display top killers across maps with a persistent leaderboard system.</p>
+    <a href="#">⬇ Download</a>
+  </div>
 
+  <div class="plugin-box">
+    <h2>FireCharge Explosion Plugin</h2>
+    <p>Launch powerful fireballs that create explosive knockback effects — no block damage!</p>
+    <a href="#">⬇ Download</a>
+  </div>
+</section>
 
-  <script>
-    // background animation reuse
-    const c=document.getElementById('bg');const ctx=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
-    const stars=[],fireflies=[],meteors=[];
-    for(let i=0;i<150;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2});
-    for(let i=0;i<20;i++)fireflies.push({x:Math.random()*c.width,y:Math.random()*c.height,a:Math.random()*360});
-    for(let i=0;i<2;i++)meteors.push({x:Math.random()*c.width,y:Math.random()*c.height,l:Math.random()*100+50,s:Math.random()*3+2});
-    function anim(){
-      ctx.clearRect(0,0,c.width,c.height);
-      ctx.fillStyle='white';stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,2*Math.PI);ctx.fill();});
-      fireflies.forEach(f=>{f.a+=0.05;f.x+=Math.cos(f.a)*0.5;f.y+=Math.sin(f.a)*0.5;if(f.x<0)f.x=c.width;if(f.x>c.width)f.x=0;if(f.y<0)f.y=c.height;if(f.y>c.height)f.y=0;ctx.fillStyle='rgba(255,255,100,0.8)';ctx.beginPath();ctx.arc(f.x,f.y,2,0,2*Math.PI);ctx.fill();});
-      meteors.forEach(m=>{m.x-=m.s;m.y+=m.s;if(m.x<-100||m.y>c.height+100){m.x=Math.random()*c.width+200;m.y=-50;}const grad=ctx.createLinearGradient(m.x,m.y,m.x+m.l,m.y-m.l);grad.addColorStop(0,'rgba(255,255,255,0.8)');grad.addColorStop(1,'rgba(255,255,255,0)');ctx.strokeStyle=grad;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(m.x,m.y);ctx.lineTo(m.x+m.l,m.y-m.l);ctx.stroke();});
-      requestAnimationFrame(anim);
-    } anim();
-  </script>
+<footer>© 2025 PAnetwork. All rights reserved.</footer>
+
+<script>
+// Create floating leaves & glows
+for (let i = 0; i < 25; i++) {
+  const leaf = document.createElement("div");
+  leaf.className = "leaf";
+  leaf.style.left = Math.random() * 100 + "vw";
+  leaf.style.animationDuration = (8 + Math.random() * 6) + "s";
+  document.body.appendChild(leaf);
+}
+for (let i = 0; i < 50; i++) {
+  const glow = document.createElement("div");
+  glow.className = "glow";
+  glow.style.left = Math.random() * 100 + "vw";
+  glow.style.animationDuration = (10 + Math.random() * 8) + "s";
+  document.body.appendChild(glow);
+}
+</script>
 </body>
 </html>
